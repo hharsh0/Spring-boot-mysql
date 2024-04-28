@@ -1,0 +1,21 @@
+package com.example.springcrud.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HomeController {
+
+
+    @GetMapping("/")
+    public ResponseEntity<String> home(){
+        String message = "Welcome";
+        String jsonResponse = "{\"message\": \"" + message + "\"}";
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("Content-Type", "application/json")
+                .body(jsonResponse);
+    }
+
+}
